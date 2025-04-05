@@ -4,7 +4,6 @@ import numpy as np
 
 class TextGenerator:
     def __init__(self, model_path='gpt_model.keras', tokenizer_path='tokenizer.pkl'):
-        # Load the model with custom objects
         self.model = tf.keras.models.load_model(
             model_path,
             custom_objects={
@@ -13,7 +12,6 @@ class TextGenerator:
             }
         )
         
-        # Load the tokenizer
         with open(tokenizer_path, 'rb') as handle:
             self.tokenizer = pickle.load(handle)
         
@@ -69,7 +67,6 @@ class TextGenerator:
         
         return generated
 
-# Usage example
 if __name__ == "__main__":
     generator = TextGenerator()
     
